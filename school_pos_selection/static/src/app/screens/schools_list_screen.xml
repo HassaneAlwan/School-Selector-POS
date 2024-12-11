@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="school_pos_selection.SchoolListScreen">
+        <div class="schoollist-screen screen h-100 d-flex flex-column bg-100">
+            <div class="top-content d-flex align-items-center p-2 border-bottom text-center">
+                <div class="button back btn btn-lg btn-secondary mx-2" t-on-click="back">
+                    <i t-if="ui.isSmall" class="fa fa-angle-double-left"/>
+                    <t t-else=""> Back</t>
+                </div>
+            </div>
+            <div class="school-table-infos" t-if="schools">
+                <table class="schools-list table table-striped w-100">
+                    <thead>
+                        <tr>
+                            <th class="py-2">Name</th>
+                            <th class="py-2">Code</th>
+                        </tr>
+                    </thead>
+                    <tbody class="schools-list-contents">
+                        <t t-foreach="schools" t-as="school"
+                            t-key="school.id">
+                            <SchoolLine school="school"
+                                selectedSchool="state.selectedSchool"
+                                onClickSchool.bind="clickSchool"/>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </t>
+
+</templates>

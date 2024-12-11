@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_school_form_view" model="ir.ui.view">
+        <field name="name">res_school.view.form</field>
+        <field name="model">res.school</field>
+        <field name="arch" type="xml">
+            <form string="Schools">
+                <sheet>
+                    <group>
+                        <field name="code" />
+                        <field name="name" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <record id="res_school_view_tree" model="ir.ui.view">
+        <field name="name">res_school.view.tree</field>
+        <field name="model">res.school</field>
+        <field name="arch" type="xml">
+            <tree string="Schools">
+                <field name="code" />
+                <field name="name" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="res_school_action" model="ir.actions.act_window">
+        <field name="name">Schools</field>
+        <field name="res_model">res.school</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="res_school_menu"
+        name="Schools"
+        parent="point_of_sale.menu_point_config_product"
+        action="res_school_action"
+    />
+
+</odoo>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="school_pos_selection.SchoolLine">
+        <tr t-attf-class="school-line gap-2 gap-lg-0 align-top {{highlight}}" t-att-data-id="props.school.id"
+            t-on-click="() => this.props.onClickSchool(props.school)">
+            <td>
+                <b>
+                    <t t-esc="props.school.name or ''" />
+                </b>
+                <button t-if="_isSchoolSelected" class="unselect-tag d-lg-inline-block d-none btn btn-light mt-2">
+                    <i class="fa fa-times me-1"></i>
+                    <span> Unselect </span>
+                </button>
+            </td>
+            <td>
+                <b>
+                    <t t-esc="props.school.code or ''" />
+                </b>       
+            </td>
+            <td class="edit-partner-button-cell">
+                <button t-if="_isSchoolSelected" class="unselect-tag-mobile d-inline-block d-lg-none btn btn-light border ms-2">
+                    <i class="fa fa-times"></i>
+                    <span> UNSELECT </span>
+                </button>
+            </td>
+        </tr>
+    </t>
+
+</templates>
